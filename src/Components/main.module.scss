@@ -1,4 +1,16 @@
 .wrapper{
     max-width: 1440px;
     margin: 0 auto;
+    .mainflex_container{
+        display: flex;
+        @media (max-width: 768px){
+           flex-direction: column-reverse;
+        }
+        .slidebar_search{
+            padding: 10px 60px;
+            @media (max-width: 768px){
+                padding: 10px;
+             }
+        }
+    }
 }
