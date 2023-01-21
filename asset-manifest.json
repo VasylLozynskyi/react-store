@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-store/static/css/main.c4d2cb3f.css",
+    "main.js": "/react-store/static/js/main.9876bb3d.js",
+    "static/media/Quicksand-Medium.ttf": "/react-store/static/media/Quicksand-Medium.e7f9096c960074f84b6c.ttf",
+    "static/media/Quicksand-Light.ttf": "/react-store/static/media/Quicksand-Light.a7f8083e8b93da348dcc.ttf",
+    "static/media/Quicksand-Bold.ttf": "/react-store/static/media/Quicksand-Bold.a0a11318dd0b528da77d.ttf",
+    "index.html": "/react-store/index.html",
+    "main.c4d2cb3f.css.map": "/react-store/static/css/main.c4d2cb3f.css.map",
+    "main.9876bb3d.js.map": "/react-store/static/js/main.9876bb3d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4d2cb3f.css",
+    "static/js/main.9876bb3d.js"
+  ]
+}
