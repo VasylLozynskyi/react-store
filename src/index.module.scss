@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Quicksand_M';
+  src: local('Quicksand_M'), url(./assets//Fonts/Quicksand/static/Quicksand-Medium.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Quicksand_L';
+  src: local('Quicksand_L'), url(./assets//Fonts/Quicksand/static/Quicksand-Light.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Quicksand_B';
+  src: local('Quicksand_B'), url(./assets//Fonts/Quicksand/static/Quicksand-Bold.ttf) format('woff');
+}
+body {
+  margin: 0;
+  font-family: 'Quicksand_M', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #242424;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus, :active {
+  outline: none;
+}
+a:focus, a:active {
+  outline: none;
+}
+nav, footer, header, aside {
+  display: block;
+}
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a, a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
