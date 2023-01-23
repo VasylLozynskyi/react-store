@@ -86,10 +86,9 @@ export const Header = (props) => {
             
             <div className={style.right_container}>
                 <nav className={style.nav_container}>
-                    <Link to="/">Home</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/contacts">Contacts</Link>
+                    <Link to="/Products">Products</Link>
+                    <Link to="/About">About</Link>
+                    <Link to="/Contacts">Contacts</Link>
                 </nav>
                 <div className={style.basket_conrainer}>
                     <button className={style.notification}>

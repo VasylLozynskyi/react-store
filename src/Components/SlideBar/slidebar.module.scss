@@ -1,0 +1,31 @@
+.slider_container{
+    margin: 0 auto;
+    max-width: 1000px;
+    font-size: 25px;
+    @media (max-width: 1380px) {
+      max-width: 720px;
+    }
+    @media (max-width: 1024px) {
+        font-size: 16px;
+        max-width: 500px;
+      }
+      @media (max-width: 400px) {
+        font-size: 10px;
+      }
+}
+
+.itemslide_container{
+    position: relative;
+    .product_item{
+        img{
+            width: 100%;
+        }
+        h2{
+            color:aliceblue;
+            position: absolute;
+            left: 1em;
+            top: 2em;
+           
+        }
+    }
+}

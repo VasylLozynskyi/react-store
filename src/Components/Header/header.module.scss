@@ -1,6 +1,6 @@
 .header_container{
     width: 100%;
-    padding: 15px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +33,7 @@
         a{
             color: #FFFFFF;
             &:hover{
+                transition: 1s;
                 transform: scale(1.2);
              }
         }  
@@ -45,6 +46,7 @@
         .basket{
             background: none;
             &:hover{
+                transition: 1s;
                transform: scale(1.2);
             }
         }
@@ -52,6 +54,7 @@
             cursor: pointer;
             color: #DA00FE;
             &:hover{
+                transition: 1s;
                 transform: scale(1.2);
              }
         }
@@ -64,6 +67,7 @@
      left: 0;
      top: 0;
      background-color: #a200ed73;
+     z-index: 10000;
      .popup{
         position: relative;
          max-width: 50%;
@@ -116,6 +120,7 @@
                  border-radius: 5px;
                  &:hover{
                      background-color:#A100ED;
+                     transition: 1s;
                  }
              }
          }
@@ -134,6 +139,7 @@
             cursor: pointer;
             &:hover{
                 color:#A100ED;
+                transition: 1s;
             }
          }
         
@@ -149,6 +155,8 @@
         right: 10px;
         &:hover{
             background-color: #A100ED;
+            transition: 1s;
+
         }
      }
  }

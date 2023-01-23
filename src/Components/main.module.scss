@@ -3,8 +3,9 @@
     margin: 0 auto;
     .mainflex_container{
         display: flex;
+        margin-bottom: 40px;
         @media (max-width: 768px){
-           flex-direction: column-reverse;
+           flex-direction: column;
         }
         .slidebar_search{
             padding: 10px 60px;

@@ -2,74 +2,73 @@
     background-color: #2D2D2D;
     min-width: 250px;
     max-width: 25%;
+    height: 90vh;
     padding: 20px;
     color: #CBCBCB;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     @media (max-width: 768px) {
         max-width: 100vw; 
+        height: 100%;
+        padding: 5px 10px;
     }
-    .categoty_header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        @media (max-width: 768px) {
-            justify-content: space-around;
-        }
-        h2{
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 30px;
-            @media (max-width: 768px) {
-                font-size: 18px;
-            }
-        }
-        img{
-            @media (max-width: 768px) {
-                transform: rotate(90deg);
-                width: 13px;
-                height: 15px;
-            }
-        }
-    }
-    .categories_container{
+    .sidebar_main{
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 0;
+        gap: 30px;
+        margin: 20px;
         @media (max-width: 768px) {
-            flex-direction: row;
-            justify-content: space-around;
+            display: none;
         }
-        .category_bar{
-            display: flex;
-            align-items: center;
-            font-weight: 700;
+        & > a{
+            color: white;
             font-size: 24px;
-            line-height: 30px;
-            color: #8A8A8A;
+            position: relative;
             &:hover{
-                transform: scale(1.2);
-                cursor: pointer;
-            }
-            @media (max-width: 768px) {
-                font-size: 15px;
-            }
-            .category_icon{
-                margin-right: 25px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                @media (max-width: 768px) {
-                    margin-right: 5px;
-                }
-                img{
-                    @media (max-width: 768px) {
-                        width: 25px;
-                    } 
-                }
+               
+                transform: scale(1.1);
+                color:#DA00FE;
+                transition: all 1s ease-out;
             }
         }
     }
+    .sidebar_category_container{
 
-    
+        .categoty_header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media (max-width: 768px) {
+                justify-content: space-around;
+            }
+            h2{
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 30px;
+                @media (max-width: 768px) {
+                    font-size: 18px;
+                }
+            }
+            img{
+                @media (max-width: 768px) {
+                    transform: rotate(90deg);
+                    width: 13px;
+                    height: 15px;
+                }
+            }
+        }
+        .categories_container{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+            @media (max-width: 768px) {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+    }
 }

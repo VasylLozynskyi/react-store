@@ -33,6 +33,7 @@
         background-color: #DA00FE;
         color: #FFFFFF;
         &:hover{
+            transition: 1s;
             background-color: #A100ED;
         }
     }

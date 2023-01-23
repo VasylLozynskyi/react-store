@@ -18,6 +18,28 @@ body {
   background-color: #242424;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background:none; 
+   
+  }
+   
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background:#DA00FE; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  
 }
 *{
   box-sizing: border-box;
