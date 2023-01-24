@@ -12,7 +12,7 @@ export const filter_btns = [
     "Top", "Popullar", "recommended"
 ];
 
-export const Categories = [
+export const categories_btns = [
     {id: "1", name: "Computer", img_icon: computer_icon},
     {id: "2", name: "Headphones", img_icon: headphones_icon},
     {id: "3", name: "VR Glasses", img_icon: glasses_icon},

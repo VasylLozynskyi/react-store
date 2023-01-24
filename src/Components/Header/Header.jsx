@@ -5,6 +5,7 @@ import notification_icon from "../../assets/images/notification.png"
 import basket_icon from "../../assets/images/basket.png"
 import {Link} from "react-router-dom";
 import { useState } from "react";
+import { Nav } from "./Nav";
 
 export const Header = (props) => {
 
@@ -86,9 +87,8 @@ export const Header = (props) => {
             
             <div className={style.right_container}>
                 <nav className={style.nav_container}>
-                    <Link to="/Products">Products</Link>
-                    <Link to="/About">About</Link>
-                    <Link to="/Contacts">Contacts</Link>
+                   {props.nav.map((nav, index) => <Nav key={index} nav={nav} />
+                   )} 
                 </nav>
                 <div className={style.basket_conrainer}>
                     <button className={style.notification}>

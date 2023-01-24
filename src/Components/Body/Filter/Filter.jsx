@@ -3,7 +3,7 @@ import {filter_btns } from "../../../data/data_btn"
 import { FilterBtn } from "./FilterBtn";
 import filter_icon from "../../../assets/images/filter.png"
 import { useState } from "react";
-import { Category } from "../../components/Category";
+import { Category } from "../../components/category/Category";
 
 export const Filter = (props) => {
     let btns = filter_btns ? filter_btns.map(btn => <FilterBtn key = {btn}data = {btn}/>): "";
@@ -40,7 +40,7 @@ export const Filter = (props) => {
                     </div>
                     <button className={style.btn_closepopup} onClick={handleClosePopupBtn}>X</button>
                 </div>
-            </div>
+        </div>
     </>
     )
 }

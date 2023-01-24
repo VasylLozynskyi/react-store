@@ -1,17 +1,15 @@
 .wrapper{
     max-width: 1440px;
     margin: 0 auto;
-    .mainflex_container{
+    .main_flex_container{
         display: flex;
         margin-bottom: 40px;
         @media (max-width: 768px){
            flex-direction: column;
         }
-        .slidebar_search{
+        .body_flex_container{
+            width: 100%;
             padding: 10px 60px;
-            @media (max-width: 768px){
-                padding: 10px;
-             }
         }
     }
 }

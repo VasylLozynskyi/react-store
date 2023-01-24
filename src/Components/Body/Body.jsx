@@ -5,11 +5,11 @@ import style from "./body.module.scss"
 import { Filter } from "./Filter/Filter";
 import Products from "./Products/Products"
 
-const Body = (props) => {
+export const Body = (props) => {
     const [showProduct, setShowProduct] = useState("");
     useEffect(()=>{
         setShowProduct(props.products)
-    }, props.products)
+    }, [props.products])
   
     const HandleFilter = (e) => {
         if (e.target.localName === "button"){
@@ -45,4 +45,3 @@ const Body = (props) => {
             </div>
     )
 }
-export default Body;

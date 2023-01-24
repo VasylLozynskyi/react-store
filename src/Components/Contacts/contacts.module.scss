@@ -1,15 +1,17 @@
-.about_container{
+.contacts{
     color: white;
+    text-align: center;
     h2{
-        text-align: center;
         margin: 30px;
         font-size: 28px;
-        font-style: italic;
+        font-style: italic; 
     }
     p{
-        transition: 2s;
         font-size: 16px;
-        line-height: 26px;
         margin-bottom: 20px;
+        a{
+            margin-left: 10px;
+            color: #DA00FE;
+        }
     }
 }

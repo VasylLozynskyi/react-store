@@ -10,6 +10,12 @@ export const About = () => {
             <p>
                 For more than 25 years of activity, the company has become one of the largest sellers in Ukraine in the b2b sales segment (wholesale and corporate sales directions), as well as in the b2c segment (retail trade for consumers).
             </p>
+            <p>
+                Starting with the opening of a small store of computer components in Lviv, Game Store has made its way to a large seller of goods and a provider of services for hundreds of thousands of customers throughout Ukraine, ensuring a consistently high quality of service.
+            </p>
+            <p>
+
+            </p>
         </div>
     )
 }
