@@ -1,28 +1,22 @@
 {
   "files": {
-    "main.css": "/react-store/static/css/main.d0d50d8b.css",
-    "main.js": "/react-store/static/js/main.f3037197.js",
+    "main.css": "/react-store/static/css/main.1bc9e50d.css",
+    "main.js": "/react-store/static/js/main.8beffa3f.js",
     "static/media/slider33.png": "/react-store/static/media/slider33.b7e48f4fce7829aee620.png",
     "static/media/slider22.png": "/react-store/static/media/slider22.5ccac5f1bbe8d28f53b0.png",
     "static/media/slider1.png": "/react-store/static/media/slider1.5314bb6ac1d4ce289c7f.png",
-    "static/media/computer.png": "/react-store/static/media/computer.c5b58b1187bd75da0a64.png",
     "static/media/Quicksand-Medium.ttf": "/react-store/static/media/Quicksand-Medium.e7f9096c960074f84b6c.ttf",
     "static/media/Quicksand-Light.ttf": "/react-store/static/media/Quicksand-Light.a7f8083e8b93da348dcc.ttf",
     "static/media/Quicksand-Bold.ttf": "/react-store/static/media/Quicksand-Bold.a0a11318dd0b528da77d.ttf",
-    "static/media/keyboard.png": "/react-store/static/media/keyboard.e1f4a9d102ea46ae108e.png",
-    "static/media/oculus_vr.png": "/react-store/static/media/oculus_vr.117693fbcd5082baf5d7.png",
-    "static/media/headphones.png": "/react-store/static/media/headphones.98beb94e4c3148eda844.png",
-    "static/media/mouse.png": "/react-store/static/media/mouse.bdb96ac153a0fefa4165.png",
-    "static/media/glasses.png": "/react-store/static/media/glasses.e73907c0c6051d3cabbf.png",
     "static/media/revicons.eot": "/react-store/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/react-store/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/react-store/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/react-store/index.html",
-    "main.d0d50d8b.css.map": "/react-store/static/css/main.d0d50d8b.css.map",
-    "main.f3037197.js.map": "/react-store/static/js/main.f3037197.js.map"
+    "main.1bc9e50d.css.map": "/react-store/static/css/main.1bc9e50d.css.map",
+    "main.8beffa3f.js.map": "/react-store/static/js/main.8beffa3f.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0d50d8b.css",
-    "static/js/main.f3037197.js"
+    "static/css/main.1bc9e50d.css",
+    "static/js/main.8beffa3f.js"
   ]
 }
