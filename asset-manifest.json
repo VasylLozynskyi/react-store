@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-store/static/css/main.1bc9e50d.css",
-    "main.js": "/react-store/static/js/main.8beffa3f.js",
+    "main.css": "/react-store/static/css/main.4a626d06.css",
+    "main.js": "/react-store/static/js/main.e9adb7f8.js",
     "static/media/slider33.png": "/react-store/static/media/slider33.b7e48f4fce7829aee620.png",
     "static/media/slider22.png": "/react-store/static/media/slider22.5ccac5f1bbe8d28f53b0.png",
     "static/media/slider1.png": "/react-store/static/media/slider1.5314bb6ac1d4ce289c7f.png",
@@ -12,11 +12,11 @@
     "static/media/revicons.ttf": "/react-store/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/react-store/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/react-store/index.html",
-    "main.1bc9e50d.css.map": "/react-store/static/css/main.1bc9e50d.css.map",
-    "main.8beffa3f.js.map": "/react-store/static/js/main.8beffa3f.js.map"
+    "main.4a626d06.css.map": "/react-store/static/css/main.4a626d06.css.map",
+    "main.e9adb7f8.js.map": "/react-store/static/js/main.e9adb7f8.js.map"
   },
   "entrypoints": [
-    "static/css/main.1bc9e50d.css",
-    "static/js/main.8beffa3f.js"
+    "static/css/main.4a626d06.css",
+    "static/js/main.e9adb7f8.js"
   ]
 }
