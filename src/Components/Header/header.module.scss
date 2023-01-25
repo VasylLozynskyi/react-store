@@ -38,7 +38,7 @@
              }
         }  
     }
-    .basket_conrainer{
+    .basket_container{
         display: flex;
         align-items: center;
         gap: 10px;
@@ -57,6 +57,9 @@
                 transition: 1s;
                 transform: scale(1.2);
              }
+        }
+        .profile{
+            color:#DA00FE;
         }
     }
 }
@@ -133,7 +136,7 @@
             color:#A100ED;
             }
          }
-         .signup_container{
+         .sign_container{
             display: inline-block;
             font-weight: 700;
             cursor: pointer;

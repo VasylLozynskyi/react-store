@@ -23,7 +23,7 @@ export const SearchBar = ({onSearch}) => {
 }, []);
 
 function filterIt(arr, searchKey) {
-    return arr.filter(item=>item.name.toLowerCase().includes(searchKey));
+    return arr.filter(item=>item.name.toLowerCase().includes((searchKey.toLowerCase())));
   }
   let search_page = filterIt(products, input);
 

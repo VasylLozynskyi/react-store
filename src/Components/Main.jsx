@@ -17,9 +17,11 @@ import { Contacts } from "./Contacts/Contacts";
 import { db } from "./utils/firebase";
 import { onValue, ref } from "firebase/database";
 import { SearchPage } from "./SearchPage/SearchPage";
+import { Profile } from "./Profile/Profile";
 
-const Main = () => {
+const Main = (props) => {
     const [products, setProducts] = useState([]);
+    const [user, setUser]= useState({});
     useEffect(() => {
         const query = ref(db, "products");
         return onValue(query, (snapshot) => {
@@ -47,9 +49,13 @@ const Main = () => {
             setSearchData(data);
         }
     }
+    const toProfileUser = (userData) => {
+        setUser(userData);
+    }
+
     return (
         <div className={style.wrapper}>
-            <Header nav= {nav} />
+            <Header nav={nav} toProfileUser={toProfileUser} />
             <div className={style.main_flex_container}>
                 <SideBar data = {categories_btns} nav= {nav}/>
                 <div className={style.body_flex_container}>
@@ -65,6 +71,7 @@ const Main = () => {
                         <Route path="/Contacts" element={<Contacts />}  />
                         <Route path="/Products/:id/" element={<Product />}  />
                         <Route path="/Products/search" element={<SearchPage data={searchData} />} />
+                        <Route path="/Profile" element={<Profile userdata={user}/>} />
                     </Routes>
                 </div>
             </div>
