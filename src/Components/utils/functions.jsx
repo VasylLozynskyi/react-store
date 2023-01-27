@@ -25,6 +25,7 @@ export const updateUserProfile = (user) => {
   if (user) {
     set(ref(db, `users/`+user.uid),
                     {
+                      uid: user.uid,
                        name: user.name,
                         email: user.email,
                     }).then(() => {console.log("user add to base")})

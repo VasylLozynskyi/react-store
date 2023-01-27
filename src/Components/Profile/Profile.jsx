@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
+import { updateUserProfile } from "../utils/functions";
 import style from "./profile.module.scss"
 
 export const Profile = (props) =>{
-    console.log(props.userdata);
+    
     const [isdata, setisdata]=useState({});
-    const [name, setName]=useState(props.userdata.name)
+    const [inputName, setInputName]=useState("");
     useEffect(()=>{
         setisdata(props.userdata)
     }, [props.userdata])
@@ -38,12 +39,19 @@ return (
     }
     const handleChange = () => {
         console.log("change name");
+        setisdata(isdata.name = inputName);
+        updateUserProfile(isdata);
+    }
+    const handleChangeName = (e) => {
+        console.log(e.target.value);
+        setInputName(e.target.value);
     }
     return(
         <div className={style.profile}>
             <div className={style.infouser}>
-                <h2>Hello, {name}</h2>
-                <input type="text" placeholder={name} id="name" value={name} />
+                <h2>Hello, {props.userdata.name}</h2>
+                <label htmlFor="name">Name </label>
+                <input type="text" placeholder={props.userdata.name} id="name" onChange={handleChangeName} />
                 <button onClick={handleChange}>change</button>
                 <p>email : {props.userdata.email}</p>
             </div>
