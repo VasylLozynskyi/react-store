@@ -36,6 +36,7 @@ export const LoginIn =(props) =>{
     }
 
     const handleSubmit = (e) =>{
+        e.preventDefault();
         if (!login){
             setError_login_input({border: "1px solid red"})
             setLogin_err("Login field cannot be empty")
@@ -67,7 +68,7 @@ export const LoginIn =(props) =>{
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigate("/products")
+                navigate("/Profile")
                 setShowPopup({display: "none"})
                 props.closeLoginIn({display: "none"});
                 props.handleUser(user);
@@ -77,11 +78,8 @@ export const LoginIn =(props) =>{
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage)
             });
-
-           
           }
           //
-          e.preventDefault();
     }
     const handleForgotPassword = () => {
         console.log("forgot password");
@@ -92,6 +90,12 @@ export const LoginIn =(props) =>{
     }
     const getShowPopup = (shown) =>{
         setShowPopup(shown)
+    }
+    const userProfile =(user) => {
+        props.handleUser(user);
+    }
+    const closeLogin = (login) =>{
+        props.closeLoginIn(login);
     }
     return (
         <>
@@ -120,7 +124,7 @@ export const LoginIn =(props) =>{
                     <button className={style.btn_closepopup} onClick={handleClosePopupBtn}>X</button>
                 </div>
             </div>
-            <LoginUp show_signUp={show_signUp} showPopup={getShowPopup} />
+            <LoginUp show_signUp={show_signUp} showPopup={getShowPopup} userProfile={userProfile} closeLoginIn={closeLogin} />
         </>
     )
 }

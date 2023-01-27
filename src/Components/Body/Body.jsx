@@ -31,6 +31,9 @@ export const Body = (props) => {
         
 
     }
+    const addToBasket = (addToBasket) =>{
+        props.addToBasketProduct(addToBasket);
+    }
     return (
             <div className={style.body_container} >
                 <div onClick={HandleFilter}>
@@ -40,7 +43,7 @@ export const Body = (props) => {
                     />
                 </div>
                 <div className={style.products_container}>
-                    <Products products = {showProduct} />
+                    <Products products = {showProduct} addToBasket={addToBasket} />
                 </div>
             </div>
     )

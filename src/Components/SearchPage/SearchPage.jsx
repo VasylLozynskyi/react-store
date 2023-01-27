@@ -1,5 +1,5 @@
 import { EmptyPage } from "../components/emptyPage/EmptyPage";
-import { SearchCard } from "./SearchCard";
+import { CardInList } from "../components/cardInlist/CardInList";
 
 export const SearchPage = (props) => {
   if (props.data.length === 0 || props === undefined){
@@ -9,7 +9,7 @@ export const SearchPage = (props) => {
   } else {
     return(
         <>
-        {props.data.map((card, index) => <SearchCard key={index} data={card}/>)}
+        {props.data.map((card, index) => <CardInList key={index} data={card}/>)}
         </>
     )
   }

@@ -7,13 +7,24 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 import { Nav } from "./Nav";
 import { LoginIn } from "./LoginIn";
+import { useEffect } from "react";
 
 export const Header = (props) => {
-
+    useEffect(()=>{
+        setClose_login(props.toLogout);
+        setShow_profile({display: "none"})
+    }, [props.toLogout])
+    useEffect(()=>{
+        setShowPopup(props.tologin);
+    }, [props.tologin])
+    useEffect(()=>{
+        setCountproducts(props.countbasket)
+    }, [props.countbasket])
     const [close_login, setClose_login] = useState({display: "block"})
     const [show_profile, setShow_profile] = useState({display: "none"})
     const [show_popup, setShowPopup] = useState({display: "none"});
     const [profU, setProfU] = useState({});
+    const [countproducts, setCountproducts] = useState(null);
     const handleShowLogin = () => {
         setShowPopup({display: "block"})
     }
@@ -37,7 +48,6 @@ export const Header = (props) => {
                     </div>
                 </div>
             </Link>
-            
             <div className={style.right_container}>
                 <nav className={style.nav_container}>
                    {props.nav.map((nav, index) => <Nav key={index} nav={nav} />
@@ -47,9 +57,9 @@ export const Header = (props) => {
                     <button className={style.notification}>
                         <img src={notification_icon} alt="notification_icon" />
                     </button>
-                    <button className={style.basket}>
-                        <img src={basket_icon} alt="notification_icon" />
-                    </button>
+                    <Link to="/basket" className={style.basket} >
+                        <img src={basket_icon} alt="notification_icon" /><span>{countproducts}</span>
+                    </Link>
                     <div className={style.login} style={close_login} onClick={handleShowLogin}>
                         Login
                     </div>

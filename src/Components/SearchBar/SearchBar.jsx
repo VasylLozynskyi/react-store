@@ -3,6 +3,7 @@ import style from "./search.module.scss"
 import { db } from "../utils/firebase";
 import { onValue, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
+import { filterIt } from "../utils/functions";
 
 export const SearchBar = ({onSearch}) => {
     const [input, setInput]=useState("");
@@ -22,16 +23,13 @@ export const SearchBar = ({onSearch}) => {
 });
 }, []);
 
-function filterIt(arr, searchKey) {
-    return arr.filter(item=>item.name.toLowerCase().includes((searchKey.toLowerCase())));
-  }
-  let search_page = filterIt(products, input);
-
-
-    const handleSearch = () => {
-        if (input && search_page){
+    const handleSearch = (e) => {
+        if (input && products){
             navigate(`/Products/search`)
-            onSearch(search_page);
+            onSearch(filterIt(products, input));
+            if (filterIt(products, input) !== []){
+                e.target.previousElementSibling.value = "";
+            }
         }
     }
     const handelChange = (e) => {

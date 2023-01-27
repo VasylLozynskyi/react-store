@@ -1,0 +1,45 @@
+.basket{
+    button{
+        height: 24px;
+        background-color: #DA00FE;
+        border-radius: 7px;
+        padding: 0 10px;
+        color: white;
+        &:hover{
+            transition: 1s;
+            background-color: #A100ED;;
+        }
+    }
+    margin: 40px 10px;
+    h2{
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .products{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .order_section{
+        margin: 30px;
+        text-align: center;
+        button{
+            height: 30px;
+            padding:0 20px;
+        }
+    }
+    .popup_login{
+        text-align: center;
+        color: white;
+
+        button{
+            margin: 0 10px;
+        }
+    }
+}
+.styleEmpty{
+    color: white;
+    margin-top: 30px;
+}

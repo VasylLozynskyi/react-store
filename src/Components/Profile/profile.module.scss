@@ -1,0 +1,30 @@
+.profile,
+.enterlogin{
+    color: white;
+    margin: 40px;
+    button{
+        height: 24px;
+        background-color: #DA00FE;
+        border-radius: 7px;
+        padding: 0 10px;
+        color: white;
+        &:hover{
+            transition: 1s;
+            background-color: #A100ED;;
+        }
+    }
+    .infouser{
+        h2{
+            margin-bottom: 20px;
+        }
+        input{
+            color: white;
+            padding-left: 5px;
+            height: 25px;
+            border: 1px solid gray;
+            background: none;
+            margin: 10px 0 20px 0;
+            margin-right: 10px;
+        }
+    }
+}

@@ -18,10 +18,17 @@ import { db } from "./utils/firebase";
 import { onValue, ref } from "firebase/database";
 import { SearchPage } from "./SearchPage/SearchPage";
 import { Profile } from "./Profile/Profile";
+import { Basket } from "./Basket/Basket";
 
 const Main = (props) => {
     const [products, setProducts] = useState([]);
     const [user, setUser]= useState({});
+    const [userPtofile, setUsersProfile]= useState({});
+    const [showloginafterlogout, setShowloginafterlogout]= useState({display: "block"})
+    const [tologin, setTologin] = useState({display: "none"});
+    // const [addtobasket, setAddtobasket]= useState([]);
+    const [arr, setArr]= useState([]);
+    
     useEffect(() => {
         const query = ref(db, "products");
         return onValue(query, (snapshot) => {
@@ -39,11 +46,21 @@ const Main = (props) => {
         {link: "/*", data: products},
         {link: "/Products/Computer", data: products.filter(product => product.category === "Computer")},
         {link: "/Products/Headphones", data: products.filter(product => product.category === "Headphones")},
-        {link: "/Products/VR Glasses", data: products.filter(product => product.category === "VR Glasses")},
+        {link: "/Products/Glasses", data: products.filter(product => product.category === "Glasses")},
         {link: "/Products/Keyboard", data: products.filter(product => product.category === "Keyboard")},
-        {link: "/Products/Mouse Gaming", data: products.filter(product => product.category === "Mouse Gaming")},
+        {link: "/Products/Mouse", data: products.filter(product => product.category === "Mouse")},
     ];
-    const [searchData, setSearchData] = useState();
+    useEffect(() => {
+        const query = ref(db, "users/"+user.uid);
+        return onValue(query, (snapshot) => {
+          const data = snapshot.val();
+    
+          if (snapshot.exists()) {
+            setUsersProfile(data);
+          }
+        });
+      }, [user]);
+    const [searchData, setSearchData] = useState([]);
     const getSearchData = (data) => {
         if (data) {
             setSearchData(data);
@@ -52,17 +69,27 @@ const Main = (props) => {
     const toProfileUser = (userData) => {
         setUser(userData);
     }
-
+    const showLogin = (data) => {
+        setShowloginafterlogout(data);
+    }
+    const toLogin = (data) => {
+        setTologin(data);
+    }
+    const addToBasketProduct = (basketProduct) =>{
+        setArr(current =>[...current, basketProduct])
+       
+    }
     return (
         <div className={style.wrapper}>
-            <Header nav={nav} toProfileUser={toProfileUser} />
+            <Header nav={nav} toProfileUser={toProfileUser} toLogout={showloginafterlogout} tologin={tologin} countbasket = {arr.length} />
             <div className={style.main_flex_container}>
                 <SideBar data = {categories_btns} nav= {nav}/>
                 <div className={style.body_flex_container}>
                     <SearchBar onSearch={getSearchData} />
                     <SlideBar slide_datas = {slide_datas} />
                     <Routes>
-                        {map.map((body, index) => <Route key={index} path={body.link} element={<Body 
+                        {map.map((body, index) => <Route key={index} path={body.link} element={<Body
+                                                    addToBasketProduct={addToBasketProduct} 
                                                     btn_categories = {categories_btns}
                                                     btn_filter = {filter_btns}
                                                     products = {body.data}
@@ -71,7 +98,9 @@ const Main = (props) => {
                         <Route path="/Contacts" element={<Contacts />}  />
                         <Route path="/Products/:id/" element={<Product />}  />
                         <Route path="/Products/search" element={<SearchPage data={searchData} />} />
-                        <Route path="/Profile" element={<Profile userdata={user}/>} />
+                        <Route path="/Profile" element={<Profile userdata={userPtofile} show_login_after_logout={showLogin}
+                        toLogin={toLogin}/>} />
+                        <Route path="/basket" element={<Basket arr={arr} user={user} tologin={toLogin}/>}  />
                     </Routes>
                 </div>
             </div>

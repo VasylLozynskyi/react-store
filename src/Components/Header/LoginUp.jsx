@@ -3,6 +3,8 @@ import style from "./header.module.scss"
 import { auth } from "../utils/firebase";
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { useNavigate } from "react-router-dom";
+import { createUserProfile } from "../utils/functions";
+
 
 export const LoginUp = (props) => {
     useEffect(() => {
@@ -31,6 +33,7 @@ export const LoginUp = (props) => {
         setPassword(e.target.value ? e.target.value : "")
     }
     const handleCreateAccount = async (e) =>{
+        e.preventDefault();
         if (!login){
             setError_login_input({border: "1px solid red"})
             setLogin_err("Login field cannot be empty")
@@ -57,16 +60,15 @@ export const LoginUp = (props) => {
           }
           //back-end part
           if (login && password && !password_err && !login_err){
-            console.log("Post to server login and password for Get true user");
-            // auth.createUserWithEmailAndPassword(login, password)
-            // .catch(error => console.log(error))
-
             await createUserWithEmailAndPassword(auth, login, password)
             .then((userCredential) => {
-                // Signed in
+                // Signed up
                 const user = userCredential.user;
-                console.log(user);
-                navigate("/profile")
+                props.userProfile(user)
+                props.closeLoginIn({display: "none"})
+                setShowSignUp({display: "none"})
+                navigate("/Profile");
+                createUserProfile(user);
                 // ...
             })
             .catch((error) => {
@@ -75,15 +77,10 @@ export const LoginUp = (props) => {
                 console.log(errorCode, errorMessage);
                 // ..
             });
-
-
-            // auth.signInWithEmailAndPassword(login, password).catch()
           }
           //
-          e.preventDefault();
     }
     const handleLoginIn = () => {
-        console.log("go to popup_signin");
         setShowSignUp({display: "none"});
         props.showPopup({display: "block"})
     }

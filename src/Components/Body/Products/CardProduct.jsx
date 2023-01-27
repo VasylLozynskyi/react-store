@@ -1,10 +1,11 @@
 import style from "./products.module.scss"
 import {Link} from "react-router-dom";
+import star_icon from "../../../assets/images/star-unfilled.png"
 
 export const CardProduct = (props) => {
     let link = `/Products/${props.data.id}`;
     const addToBasketHandler =() =>{
-        console.log("add product to basket");
+        props.basket(props.data);
     }
     return (
        
@@ -13,7 +14,11 @@ export const CardProduct = (props) => {
                 <Link to={link}>
                     <img src={props.data.img} alt={props.data.name} />
                 </Link>
-                <div>
+                <div className={style.product_context}>
+                    <div>
+                        <img className={style.star_icon} src={star_icon} alt="star_icon" />
+                        <span>{props.data.rating.rate}</span>
+                    </div>
                 <Link to={link}>
                     <h2>{props.data.name}</h2>
                     <p className={style.card_category}>{props.data.category}</p>

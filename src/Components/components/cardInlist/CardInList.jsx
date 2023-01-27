@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import style from "./searchcard.module.scss"
+import style from "./cardinlist.module.scss"
 
 
-export const SearchCard = (props) => {
+export const CardInList = (props) => {
     let link=`/Products/${props.data.id}`
     return (
         <Link to={link}>
@@ -10,6 +10,7 @@ export const SearchCard = (props) => {
                 <img src={props.data.img} alt={`${props.data.name}_icon`}  />
                 <h2>{props.data.name}</h2>
                 <p>{props.data.subName}</p>
+                <p>{props.data.price}$</p>
             </div>
         </Link>
     )

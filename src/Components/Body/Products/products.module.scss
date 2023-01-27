@@ -37,7 +37,17 @@
             right: 0;
             text-align: center;
             padding: 20px;
-            & > div{
+            img{
+                width: 150px;
+                max-height: 125px;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                top: -40px;
+                right: 0;
+                left: 0;
+             }
+            .product_context{
                 position: absolute;
                 margin-left: auto;
                 margin-right: auto;
@@ -45,56 +55,63 @@
                 right: 0;
                 text-align: center;
                 bottom: 20px;
-            }
-            img{
-               width: 150px;
-               max-height: 125px;
-               position: absolute;
-               margin-left: auto;
-               margin-right: auto;
-               top: -40px;
-               right: 0;
-               left: 0;
-            }
-            h2{
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 19px;
-                color: #FFFFFF;
-                margin-bottom: 10px;
-            }
-            .card_category{
-                font-weight: 400;
-                font-size: 10px;
-                line-height: 12px;
-                color: #8A8A8A;
-                margin-bottom: 15px;
-            }
-            .card_price{
-                font-weight: 500;
-                font-size: 12px;
-                line-height: 15px;
-                color: #DA00FE;
-            }
-            .btn_add_tobasket{
-                width: 24px;
-                height: 24px;
-                background-color: antiquewhite;
-                color: none;
-                border-radius: 50%;
-                margin-top: 20px;
-                margin-left:-70px;
-                &::after{
-                    position: absolute;
+                h2{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
                     color: #FFFFFF;
-                    left: 30px;
-                    right: 0;
-                    margin-left: 20px;
-                    content: "Add to Cart";
+                    margin-bottom: 10px;
                 }
-                &:hover{
-                    transition: 1s;
-                    background-color: #DA00FE;
+                .card_category{
+                    font-weight: 400;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: #8A8A8A;
+                    margin-bottom: 15px;
+                }
+                .card_price{
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 15px;
+                    color: #DA00FE;
+                }
+                .btn_add_tobasket{
+                    width: 24px;
+                    height: 24px;
+                    background-color: antiquewhite;
+                    color: none;
+                    border-radius: 50%;
+                    margin-top: 20px;
+                    margin-left:-70px;
+                    &::after{
+                        position: absolute;
+                        color: #FFFFFF;
+                        left: 30px;
+                        right: 0;
+                        margin-left: 20px;
+                        content: "Add to Cart";
+                    }
+                    &:hover{
+                        transition: 1s;
+                        background-color: #DA00FE;
+                    }
+                }
+                & > div{
+                    position: relative;
+                    top: -30px;
+                    left: -50px;
+                    align-items: center;
+                    .star_icon{
+                        position: static;
+                        display: inline;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    span{
+                        display: inline;
+                        color:#DA00FE;
+                        font-size: 10px;
+                    }
                 }
             }
         }

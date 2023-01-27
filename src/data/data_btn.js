@@ -15,9 +15,9 @@ export const filter_btns = [
 export const categories_btns = [
     {id: "1", name: "Computer", img_icon: computer_icon},
     {id: "2", name: "Headphones", img_icon: headphones_icon},
-    {id: "3", name: "VR Glasses", img_icon: glasses_icon},
+    {id: "3", name: "Glasses", img_icon: glasses_icon},
     {id: "4", name: "Keyboard", img_icon: keyboard_icon},
-    {id: "5", name: "Mouse Gaming", img_icon: mouse_icon},
+    {id: "5", name: "Mouse", img_icon: mouse_icon},
     
 ];
 
