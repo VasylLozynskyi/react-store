@@ -1,9 +1,13 @@
 .productpage{
     color: white;
+    margin-bottom: 40px;
     .flex{
         display: flex;
         margin: 30px;
         gap: 10px;
+        @media (max-width: 920px){
+            flex-wrap: wrap;
+        }
         h2{
             font-size: 30px;
             margin: 30px;
@@ -19,6 +23,10 @@
         img{
             width: 300px;
             height: 300px;
+            @media (max-width: 512px){
+                width: 100%;
+                height: 100%;
+            }
         }
        .rate{
             img{
@@ -26,9 +34,111 @@
             height: 15px;
             }  
         }
+        .btn_add_tobasket{
+            position: relative;
+            width: 24px;
+            height: 24px;
+            background-color: antiquewhite;
+            color: none;
+            border-radius: 50%;
+            margin-top: 20px;
+            color: black;
+            padding: 5px;
+            &::after{
+                position: absolute;
+                color: #FFFFFF;
+                width: 80px;
+                left: 5px;
+                right: 0;
+                margin-left: 20px;
+                content: "Add to Cart";
+            }
+            &:hover{
+                transition: 1s;
+                background-color: #DA00FE;
+                &::after{
+                    transition: 1s;
+                    transform: scale(1.1);
+                    color: #DA00FE;
+                }
+            }
+        }
     }
     & > p{
         line-height: 24px;
         font-size: 16px;
+    }
+    .responds_container{
+        margin: 40px 10px;
+        h2{
+            margin: 30px;
+            color: #DA00FE;
+        }
+        label{
+            margin-right: 10px;
+        }
+        input{
+            border: 1px solid #DA00FE;
+            background: #95739b;
+            padding: 5px;
+        }
+        textarea{
+            display: block;
+            width: 70%;
+            min-height: 100px;
+            border: 1px solid #DA00FE;
+            background:#95739b;
+            padding: 5px;
+            margin: 20px 0;
+            &::placeholder{
+                color: rgba(235, 209, 209, 0.774);
+            }
+            @media (max-width: 768px){
+                width: 90%;
+            }
+        }
+        button{
+            height: 24px;
+            padding: 0 10px;
+            background-color: #DA00FE;
+            border-radius: 7px;
+           color: white;
+           margin-bottom: 30px;
+           &:hover{
+            transition: 1s;
+            background: #A100ED;
+           }
+        }
+        .responds{
+            margin: 10px;
+            border: 1px solid #A100ED;
+            border-radius: 5px;
+            background-color: #3d343f;
+            padding: 10px;
+            h2{
+    
+            }
+            span{
+                margin-left: 10px;
+                color:#DA00FE;
+            }
+            h3{
+                display: inline-block;
+                margin: 5px 0 10px 20px;
+                font-weight: 400;
+                font-style: italic;
+                border-bottom: 1px solid #DA00FE;
+            }
+            .info_text{
+                border: 1px solid  #DA00FE;
+                padding: 10px;
+            }
+            p{
+                margin: 10px;
+                span{
+                    font-style: italic;
+                }
+            }
+        }
     }
 }

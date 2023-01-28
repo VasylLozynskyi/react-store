@@ -7,15 +7,25 @@ import Products from "./Products/Products"
 
 export const Body = (props) => {
     const [showProduct, setShowProduct] = useState("");
+    const [a, setA]=useState([]);
     useEffect(()=>{
         setShowProduct(props.products)
     }, [props.products])
   
+    function sortTop(a,b){
+        if(+a.rating.rate<+b.rating.rate)return 1;
+        if(+a.rating.rate>+b.rating.rate)return -1;
+        return 0;
+      }
+
     const HandleFilter = (e) => {
+        let a=[];
         if (e.target.localName === "button"){
             switch (e.target.textContent) {
                 case "Top":
-                    setShowProduct(props.products.filter(product => product.filter === "Top"))   
+                     setShowProduct(props.products.filter(product => product.filter === "Top"))  
+                //    a =  showProduct.sort(sortTop)
+                    // setShowProduct(a.sort(sortTop))   
                     break;
                 case "Popullar":
                     setShowProduct(props.products.filter(product => product.filter === "Popullar"))   
@@ -28,8 +38,6 @@ export const Body = (props) => {
                     break;
             }
         }
-        
-
     }
     const addToBasket = (addToBasket) =>{
         props.addToBasketProduct(addToBasket);

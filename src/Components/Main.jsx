@@ -72,16 +72,25 @@ const Main = (props) => {
     const showLogin = (data) => {
         setShowloginafterlogout(data);
     }
-    const toLogin = (data) => {
-        setTologin(data);
+    const toLogin = () => {
+        setTologin({display: "block"});
     }
     const addToBasketProduct = (basketProduct) =>{
         setArr(current =>[...current, basketProduct])
        
     }
+    const dellArr = (params) => {
+        setArr(current => [...current.filter(el => el.id !== params.id)])
+    }
     return (
         <div className={style.wrapper}>
-            <Header nav={nav} toProfileUser={toProfileUser} toLogout={showloginafterlogout} tologin={tologin} countbasket = {arr.length} />
+            <Header 
+                nav={nav} 
+                toProfileUser={toProfileUser} 
+                toLogout={showloginafterlogout} 
+                tologin={tologin} 
+                countbasket = {arr.length} 
+            />
             <div className={style.main_flex_container}>
                 <SideBar data = {categories_btns} nav= {nav}/>
                 <div className={style.body_flex_container}>
@@ -96,11 +105,21 @@ const Main = (props) => {
                                                     />}  /> )}
                         <Route path="/About" element={<About />}  />
                         <Route path="/Contacts" element={<Contacts />}  />
-                        <Route path="/Products/:id/" element={<Product />}  />
+                        <Route path="/Products/:id/" element={<Product userdata={userPtofile}
+                                                                        toLogin={toLogin} 
+                                                                        addToBasketProduct={addToBasketProduct} />}  />
                         <Route path="/Products/search" element={<SearchPage data={searchData} />} />
-                        <Route path="/Profile" element={<Profile userdata={userPtofile} show_login_after_logout={showLogin}
-                        toLogin={toLogin}/>} />
-                        <Route path="/basket" element={<Basket arr={arr} user={user} tologin={toLogin}/>}  />
+                        <Route path="/Profile" element={<Profile 
+                                                            userdata={userPtofile}                 
+                                                            show_login_after_logout={showLogin}
+                                                            toLogin={toLogin}
+                                                        />} 
+                        />
+                        <Route path="/basket" element={<Basket arr={arr} 
+                                                            user={user} 
+                                                            tologin={toLogin} 
+                                                            dellArr={dellArr}
+                                                        />}  />
                     </Routes>
                 </div>
             </div>

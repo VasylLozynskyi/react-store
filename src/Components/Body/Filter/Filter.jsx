@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Category } from "../../components/category/Category";
 
 export const Filter = (props) => {
-    let btns = filter_btns ? filter_btns.map(btn => <FilterBtn key = {btn}data = {btn}/>): "";
+    let btns = filter_btns ? filter_btns.map(btn => <FilterBtn key = {btn} data = {btn}/>): "";
     let category = props.btn_categories ? props.btn_categories.map(card => <Category key={card.id} data = {card}/>) : "";
     const [show_popup, setShowPopup] = useState({display: "none"});
    

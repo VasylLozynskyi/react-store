@@ -1,49 +1,39 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
-import { CardInBasket } from "../components/cardInbasket/CardInBasket";
+
 import style from "./basket.module.scss"
+import { MapBasket } from "./MapBasket";
 
 export const Basket = (props) => {
     const [showloginpopup, setShowloginpopup] = useState({display: "none"});
-    const [arrayProducts, setArrayProducts] = useState(props.arr);
-    const emptypage = <div className={style.styleEmpty}>Nothing selected to basket</div>
-    const [productInBasket, setProductInBasket] = useState(emptypage);
-    useEffect(() => {
-       if (arrayProducts.length > 0) {
-        setProductInBasket(arrayProducts.map((product, index) => <CardInBasket key={index} data={product} toRemove={toRemove} /> ))
-       }
-    }, [arrayProducts.length]);
-    
-    const toRemove =(params)=>{
-    // setArrayProducts(arrayProducts.filter(data => {    
-    //     return data !== params}))
-    }
+    const [total, setTotal]=useState(0);
 
     const handleToOrder =() => {
-        if(!productInBasket.length){
+        if(props.arr.length === 0){
             alert(`Nothing selected to basket`)
         } else if(props.user.uid !== undefined){
             //back-end code 
             alert(`To order ${props.user.email} `)
             // {user} and {arr of products} and {info about ordered products count, totalprice}
-            //
+            // props.arr , 
           } else {
             setShowloginpopup({display: "block"})
            }
     }
     const handleToLogin = () => {
-        props.tologin({display: "block"})
+        props.tologin();
         setShowloginpopup({display: "none"})
     }
-    
+
+    const dellArrr = (params) => {
+        props.dellArr(params);
+    }
     return (
         <div className={style.basket}>
             <h2>Basket</h2>
-            <div className={style.products}>
-                {productInBasket}
-            </div>
+            <MapBasket products={props.arr} dellArr={dellArrr} />
             <div className={style.order_section}>
+                <p className={style.totalprice}>Total Price: <span>{total.toFixed(2)}$</span></p>
                 <button className={style.btn_order} onClick={handleToOrder}>To Order</button>
             </div>
             <div className={style.popup_login} style={showloginpopup}>

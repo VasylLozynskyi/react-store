@@ -8,20 +8,19 @@ import style from "./cardinbasket.module.scss"
 export const CardInBasket = (props) => {
     let link=`/Products/${props.data.id}`;
     const [count, setcount] = useState(1);
-    const [totalprice, setTotalprice] = useState(+props.data.price);
-    const [showproduct, setShowproduct] = useState({display: "block"})
+    const [totalpricecard, setTotalpricecard] = useState(+props.data.price);
     const divProduct = () => {
         setcount(count-1);
-        setTotalprice(totalprice- +props.data.price)
+        setTotalpricecard(totalpricecard - +props.data.price);
     }
+    
     const addProduct = () =>{
         setcount(count+1);
-        setTotalprice(totalprice + +props.data.price)
+        setTotalpricecard(totalpricecard + +props.data.price);
     }
-    useEffect(()=>{
+    useEffect(() =>{
         if (count === 0){
-            // setShowproduct({display: "none"})
-            props.toRemove(props.data);
+        props.toRemove(props.data);
         }
     }, [count])
     return (
@@ -46,7 +45,7 @@ export const CardInBasket = (props) => {
                             <span>{count}</span>
                             <button className={style.btncount} onClick={addProduct}>+</button>
                         </div>
-                        <p className={style.card_price}>{totalprice.toFixed(2)}$</p>
+                        <p className={style.card_price}>{totalpricecard.toFixed(2)}$</p>
                     </div>
                 </div>
             </div>

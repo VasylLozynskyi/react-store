@@ -17,7 +17,7 @@ export const Profile = (props) =>{
     const navigate = useNavigate();
 if (isdata.uid === undefined){
     const handleLogin =() =>{
-        props.toLogin({display: "block"})
+        props.toLogin();
     }
 return (
     <div className={style.enterlogin}>
