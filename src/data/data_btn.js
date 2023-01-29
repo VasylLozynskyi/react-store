@@ -9,7 +9,10 @@ import slide_p2 from "../assets/images/sliders/slider22.png"
 import slide_p3 from "../assets/images/sliders/slider33.png"
 
 export const filter_btns = [
-    "Top", "Popullar", "recommended"
+    {id: 1, name: "All"},
+    {id: 2, name: "Top"},
+    {id: 3, name: "Popullar"},
+    {id: 4, name: "recommended"},
 ];
 
 export const categories_btns = [

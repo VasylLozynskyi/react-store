@@ -4,7 +4,6 @@ import style from "./header.module.scss"
 import { LoginUp } from "./LoginUp";
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 export const LoginIn =(props) =>{
     useEffect(() => {
@@ -18,7 +17,6 @@ export const LoginIn =(props) =>{
     const [error_password_input, setError_password_input] = useState({});
     const [show_popup, setShowPopup] = useState({display: "none"});
     const [show_signUp, setShowSignUp] = useState({display: "none"});
-    const navigate = useNavigate();
 
     const handleCloseLogin = (e) => {
         if (e.target.attributes.closepopup.value === "true"){
@@ -68,7 +66,6 @@ export const LoginIn =(props) =>{
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigate("/Profile")
                 setShowPopup({display: "none"})
                 props.closeLoginIn({display: "none"});
                 props.handleUser(user);

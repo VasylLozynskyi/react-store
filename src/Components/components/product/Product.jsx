@@ -100,7 +100,10 @@ export const Product = (props) => {
                     <input type="text" id="title" name="title" onChange={handleChange} value={title} />
                     <textarea name="respond" id="respond" placeholder="Write respond" onChange={handleChange} value={textArea}></textarea>
                     <button onClick={handleSaveTextArea}>save respond</button>
-                    {respondsmap}
+                    <div className={style.data_responds_container}>
+                        {respondsmap}
+                    </div>
+                   
                 </div>
             </div>
         )

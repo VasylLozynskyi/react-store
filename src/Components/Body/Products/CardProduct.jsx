@@ -22,7 +22,7 @@ export const CardProduct = (props) => {
                 <Link to={link}>
                     <h2>{props.data.name}</h2>
                     <p className={style.card_category}>{props.data.category}</p>
-                    <p className={style.card_price}>{props.data.price}</p>
+                    <p className={style.card_price}>{props.data.price}$</p>
                 </Link>
                     <button className={style.btn_add_tobasket} onClick={addToBasketHandler}>
                         +

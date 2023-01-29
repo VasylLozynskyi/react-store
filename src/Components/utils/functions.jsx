@@ -1,6 +1,5 @@
 import { db } from "./firebase";
-import { ref,  onValue, onSnapshot, set } from "firebase/database";
-import { useState } from "react";
+import { ref,  onValue, set } from "firebase/database";
 
 export function filterIt(arr, searchKey) {
     return arr.filter(item=>item.name.toLowerCase().includes((searchKey.toLowerCase())));
@@ -87,4 +86,38 @@ export const updateToMassResponds = (data) => {
     }
   }
   return resp.reverse();
+}
+
+export const filterProducts = (event, products) => {
+  let a=[];
+  function sortTop(a,b){
+    if(+a.rating.rate<+b.rating.rate)return 1;
+    if(+a.rating.rate>+b.rating.rate)return -1;
+    return 0;
+  }
+  function sortPop(a,b){
+    if(+a.rating.count<+b.rating.count)return 1;
+    if(+a.rating.count>+b.rating.count)return -1;
+    return 0;
+  }
+  if (event.localName === "button"){
+    let ar = [];
+      switch (event.textContent) {
+          case "Top":
+              // a = products.filter(product => product.filter === "Top")
+                a = [...products].sort(sortTop);
+              break;
+          case "Popullar":
+             // a = products.filter(product => product.filter === "Popullar")
+                a = [...products].sort(sortPop);
+              break;
+          case "recommended":
+              a = products.filter(product => product.filter === "recommended")
+              break;
+          default:
+              a = products;   
+              break;
+      }
+  }
+  return a
 }

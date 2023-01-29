@@ -43,6 +43,9 @@
         transition: 1s;
         background: #A100ED;
     }
+    &:focus{
+        background:#A100ED;
+    }
 }
 .popup_container{
     position: absolute;

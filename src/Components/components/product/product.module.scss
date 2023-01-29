@@ -140,5 +140,25 @@
                 }
             }
         }
+        .data_responds_container{
+           height: 550px;
+           overflow: auto;
+           &::-webkit-scrollbar {
+            width: 10px;
+          }
+          /* Track */
+          &::-webkit-scrollbar-track {
+            background:none; 
+          }
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background:#DA00FE; 
+            border-radius: 10px;
+          }
+          /* Handle on hover */
+          &::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+          }
+        }
     }
 }

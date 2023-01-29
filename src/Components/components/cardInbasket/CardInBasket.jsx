@@ -23,6 +23,7 @@ export const CardInBasket = (props) => {
         props.toRemove(props.data);
         }
     }, [count])
+    console.log(count);
     return (
         <div className={style.card_product} >
             <div className={style.flex_product}>
