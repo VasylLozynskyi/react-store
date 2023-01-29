@@ -36,6 +36,7 @@ export const Product = (props) => {
     let datas = products.filter(data => data.id === id);
     let data = {};
     data= datas[0];
+    
     useEffect(() => {
         setResponds(updateToMassResponds(data));
     }, [data]);
@@ -77,7 +78,7 @@ export const Product = (props) => {
         props.addToBasketProduct(data);
     }
     if(datas.length === 1){
-        let respondsmap = responds.map(resp => <RespondItem key={resp.id}resp={resp} />)
+        let respondsmap = responds.map(resp => <RespondItem key={resp.id} resp={resp} />)
         return (
             <div className={style.productpage}>
                 <div className={style.flex}>

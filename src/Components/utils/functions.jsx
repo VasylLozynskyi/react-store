@@ -2,7 +2,6 @@ import { db } from "./firebase";
 import { ref,  onValue, onSnapshot, set } from "firebase/database";
 import { useState } from "react";
 
-
 export function filterIt(arr, searchKey) {
     return arr.filter(item=>item.name.toLowerCase().includes((searchKey.toLowerCase())));
   }
@@ -34,11 +33,16 @@ export const updateUserProfile = (user) => {
 
 export const saveProductRespond = (product, respond) => {
   if (product && respond) {
-    set(ref(db, `products/`+(+/\d+/.exec(product.id)) + `/respond/` + respond.id),
+    set(ref(db, `products/`+(+/\d+/.exec(product.id)) + `/responds/` + product.respondcount),
                       respond,
                     ).then(() => {console.log("respond add to base")})
                     .catch((error) => {console.log("there was an error, details: " + error)});
+    set(ref(db, `products/`+(+/\d+/.exec(product.id)) + `/respondcount`),
+                      product.respondcount + 1
+                    ).then(() => {console.log("respondcount update to base")})
+                    .catch((error) => {console.log("there was an error, details: " + error)});
   }
+
 }
 
 function getRandomUppercaseChar() {
@@ -76,10 +80,11 @@ export function findResponds(product) {
 
 export const updateToMassResponds = (data) => {
   let resp = [];
+  console.log(data);
   if (data){
-    for (let r in data.respond){
-      resp.push(data.respond[r])
+    for (let r in data.responds){
+      resp.push(data.responds[r])
     }
   }
-  return resp;
+  return resp.reverse();
 }
