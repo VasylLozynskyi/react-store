@@ -17,7 +17,6 @@ export const StarRating = (props) => {
         }
     }
     }, [props.user])
-
     return (
       <div className={style.star_rating}>
         {[...Array(5)].map((star, index) => {
@@ -31,7 +30,7 @@ export const StarRating = (props) => {
                     onClick={() => {
                         if (props.user.uid && !rating) {
                             setRating(index);
-                            setcreateToUserRate(index, props.product.id, props.user.uid)
+                            setcreateToUserRate(index, props.product, props.user.uid)
                         } else if(!props.user.uid) {props.toLogin();} else if (rating) {
                             alert("you just had rates this product")
                         }}}

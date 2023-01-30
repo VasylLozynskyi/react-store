@@ -103,7 +103,7 @@ export const Product = (props) => {
                         <h2>{datas.name}</h2>
                         <p className={style.subname}>{datas.subName}</p>
                         <p className={style.price}>{`price: ${datas.price}$`}</p>
-                        <p className={style.rate}>{countrate()} {rate}</p>
+                        <p className={style.rate}>{countrate()} {rate.toFixed(2)}</p>
                         <button className={style.btn_add_tobasket} onClick={addToBasketHandler}>
                             +
                         </button>

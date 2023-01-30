@@ -134,16 +134,22 @@ export const createMapLinks = (products) => {
   return map;
 }
 
-export const setcreateToUserRate = (rate, id, uid) => {
-  console.log(rate);
-  console.log(uid);
-  console.log(id);
-  if (uid) {
-    set(ref(db, `users/`+ uid + "/rates/" + id + "/"),
+export const setcreateToUserRate = (rate, product, uid) => {
+  if (uid && product) {
+    set(ref(db, `users/`+ uid + "/rates/" + product.id + "/"),
                     {
-                      productId: id,
+                      productId: product.id,
                       productRate: rate,
-                    }).then(() => {console.log("rates add to base")})
+                    }).then(() => {console.log("rates in userData add to base")})
                     .catch((error) => {console.log("there was an error, details: " + error)});
+
+    set(ref(db, `products/`+(+/\d+/.exec(product.id)) + `/rating/rate`),
+                    ((+product.rating.rate * +product.rating.count) + rate) / (+product.rating.count + 1),
+                  ).then(() => {console.log("respond add to base")})
+                  .catch((error) => {console.log("there was an error, details: " + error)});
+    set(ref(db, `products/`+(+/\d+/.exec(product.id)) + `/rating/count`),
+                  (+product.rating.count + 1),
+                ).then(() => {console.log("respond add to base")})
+                .catch((error) => {console.log("there was an error, details: " + error)});
   }
 }
