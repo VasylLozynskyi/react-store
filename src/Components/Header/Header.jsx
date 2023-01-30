@@ -14,28 +14,36 @@ export const Header = (props) => {
         setClose_login(props.toLogout);
         setShow_profile({display: "none"})
     }, [props.toLogout])
+
     useEffect(()=>{
         setShowPopup(props.tologin);
     }, [props.tologin])
+
     useEffect(()=>{
         setCountproducts(props.countbasket)
     }, [props.countbasket])
+
     const [close_login, setClose_login] = useState({display: "block"})
     const [show_profile, setShow_profile] = useState({display: "none"})
     const [show_popup, setShowPopup] = useState({display: "none"});
     const [profU, setProfU] = useState({});
     const [countproducts, setCountproducts] = useState(null);
+
     const handleShowLogin = () => {
         setShowPopup({display: "block"})
     }
+
     const closeLoginIn =() =>{
         setClose_login({display: "none"});
         setShow_profile({display: "block"});
     }
+
     const handleUser = (user) => {
         user ? setProfU(user) : setProfU({});
     }
+
     props.toProfileUser(profU);
+    
     return(
         <>
         <div className={style.header_container}>

@@ -25,6 +25,7 @@ export const updateUserProfile = (user) => {
                       uid: user.uid,
                        name: user.name,
                         email: user.email,
+                        rates: "",
                     }).then(() => {console.log("user add to base")})
                     .catch((error) => {console.log("there was an error, details: " + error)});
   }
@@ -74,12 +75,11 @@ export function findResponds(product) {
       });
   }
   // returns  () => repoRemoveEventCallbackForQuery(query._repo, query, container)  ??????
-  return responds;
+  return  responds;
 }
 
 export const updateToMassResponds = (data) => {
   let resp = [];
-  console.log(data);
   if (data){
     for (let r in data.responds){
       resp.push(data.responds[r])
@@ -101,7 +101,6 @@ export const filterProducts = (event, products) => {
     return 0;
   }
   if (event.localName === "button"){
-    let ar = [];
       switch (event.textContent) {
           case "Top":
               // a = products.filter(product => product.filter === "Top")
@@ -120,4 +119,31 @@ export const filterProducts = (event, products) => {
       }
   }
   return a
+}
+
+export const createMapLinks = (products) => {
+  let map =[
+    {link: "/*", data: products},
+    {link: "/Products/Computer", data: products.filter(product => product.category === "Computer")},
+    {link: "/Products/Headphones", data: products.filter(product => product.category === "Headphones")},
+    {link: "/Products/Glasses", data: products.filter(product => product.category === "Glasses")},
+    {link: "/Products/Keyboard", data: products.filter(product => product.category === "Keyboard")},
+    {link: "/Products/Mouse", data: products.filter(product => product.category === "Mouse")},
+];
+
+  return map;
+}
+
+export const setcreateToUserRate = (rate, id, uid) => {
+  console.log(rate);
+  console.log(uid);
+  console.log(id);
+  if (uid) {
+    set(ref(db, `users/`+ uid + "/rates/" + id + "/"),
+                    {
+                      productId: id,
+                      productRate: rate,
+                    }).then(() => {console.log("rates add to base")})
+                    .catch((error) => {console.log("there was an error, details: " + error)});
+  }
 }

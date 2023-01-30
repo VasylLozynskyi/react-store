@@ -65,104 +65,105 @@
             color:#DA00FE;
         }
     }
-}
-.popup_container{
-    position: absolute;
-     width: 100%;
-     height: 100%;
-     left: 0;
-     top: 0;
-     background-color: #a200ed73;
-     z-index: 10000;
-     .popup{
-        position: relative;
-         max-width: 50%;
-         margin: 10em auto;
-         background-color: #FFFFFF;
-         text-align: center;
-         padding: 10px;
-         color: #DA00FE;
-         h2{
-             font-size: 25px;
-             margin-bottom: 10px;
-         }
-         form{
-             width: 90%;
-             min-height: 50%;
-             margin: 0 auto;
-             .label{
-                margin-top: 100px;
+    .popup_container{
+        position: fixed;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         background-color: #a200ed73;
+         z-index: 10000;
+         .popup{
+            position: relative;
+             max-width: 50%;
+             margin: 10em auto;
+             background-color: #FFFFFF;
+             text-align: center;
+             padding: 10px;
+             color: #DA00FE;
+             h2{
+                 font-size: 25px;
+                 margin-bottom: 10px;
              }
-             input{
-                 display: block;
-                 margin: 5px auto;
-                 border: 1px solid #DA00FE;
-                 border-radius: 2px;
-                 padding-left: 5px;
-                 &::placeholder{
-                     color: rgb(188, 143, 199);
-                     font-size: 11px;
+             form{
+                 width: 90%;
+                 min-height: 50%;
+                 margin: 0 auto;
+                 .label{
+                    margin-top: 100px;
                  }
-                 &:hover{
-                     border-color:#A100ED;
+                 input{
+                     display: block;
+                     margin: 5px auto;
+                     border: 1px solid #DA00FE;
+                     border-radius: 2px;
+                     padding-left: 5px;
+                     &::placeholder{
+                         color: rgb(188, 143, 199);
+                         font-size: 11px;
+                     }
+                     &:hover{
+                         border-color:#A100ED;
+                     }
+                 }
+                 .invalid_feedback{
+                     position: absolute;
+                     margin-left: auto;
+                     margin-right: auto;
+                     left: 0;
+                     right: 0;
+                     color: red;
+                     margin-top: -5px;
+                     font-size: 8px;  
+                 }
+                 .btn_submit{
+                     display: block;
+                     margin: 10px auto;
+                     background-color: #DA00FE;
+                     color:#FFFFFF;
+                     width: 60px;
+                     height: 30px;
+                     border-radius: 5px;
+                     &:hover{
+                         background-color:#A100ED;
+                         transition: 1s;
+                     }
                  }
              }
-             .invalid_feedback{
-                 position: absolute;
-                 margin-left: auto;
-                 margin-right: auto;
-                 left: 0;
-                 right: 0;
-                 color: red;
-                 margin-top: -5px;
-                 font-size: 8px;  
-             }
-             .btn_submit{
-                 margin: 10px 0;
-                 background-color: #DA00FE;
-                 color:#FFFFFF;
-                 width: 60px;
-                 height: 30px;
-                 border-radius: 5px;
-                 &:hover{
-                     background-color:#A100ED;
-                     transition: 1s;
-                 }
-             }
-         }
-         .forgot_pass{
-            display: inline-block;
-           font-size: 12px;
-           margin-bottom: 5px;
-           cursor: pointer;
-           &:hover{
-            color:#A100ED;
-            }
-         }
-         .sign_container{
-            display: inline-block;
-            font-weight: 700;
-            cursor: pointer;
-            &:hover{
+             .forgot_pass{
+                display: inline-block;
+               font-size: 12px;
+               margin-bottom: 5px;
+               cursor: pointer;
+               &:hover{
                 color:#A100ED;
+                }
+             }
+             .sign_container{
+                display: inline-block;
+                font-weight: 700;
+                cursor: pointer;
+                &:hover{
+                    color:#A100ED;
+                    transition: 1s;
+                }
+             }
+            
+         }
+         .btn_closepopup{
+            height: 20px;
+            width: 20px;
+            color:#FFFFFF;
+            background-color:#DA00FE;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            &:hover{
+                background-color: #A100ED;
                 transition: 1s;
+    
             }
          }
-        
      }
-     .btn_closepopup{
-        height: 20px;
-        width: 20px;
-        color:#FFFFFF;
-        background-color:#DA00FE;
-        border-radius: 4px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        &:hover{
-            background-color: #A100ED;
-            transition: 1s;
-
-        }
-     }
- }
+}

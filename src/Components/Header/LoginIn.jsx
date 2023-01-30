@@ -113,7 +113,6 @@ export const LoginIn =(props) =>{
                             <div className={style.forgot_pass} onClick={handleForgotPassword}>
                            Forgot password?</div>
                         </div>
-                        
                         <div className={style.sign_container} onClick= {handleSignUp}>
                             <p>Sign Up</p>
                         </div>

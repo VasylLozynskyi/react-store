@@ -161,4 +161,19 @@
           }
         }
     }
+    .rating_container{
+        margin: 30px;
+        color: #A100ED;
+        border: 1px solid #A100ED;
+        p{
+           margin: 10px;
+        }
+    }
+}
+.loading{
+    margin: 20px;
+    text-align: center;
+    img{
+        width: 50px;
+    }
 }

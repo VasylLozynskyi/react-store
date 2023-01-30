@@ -87,6 +87,7 @@ export const LoginUp = (props) => {
     return (
         <div className={style.popup_container} style={show_signUp} onClick={handleCloseSignUp} closepopup={"true"}>
         <div className={style.popup} closepopup={"false"}>
+        <h2>Sign Up</h2>
         <form onSubmit={handleCreateAccount}>
                 <label htmlFor="login" className={style.label}>Login (email)</label>
                     <input type="text"  id="login" name="login" placeholder="login (email)" 

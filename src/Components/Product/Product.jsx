@@ -1,22 +1,23 @@
 import { useEffect , useState} from "react";
 import { useParams } from "react-router-dom";
-import { db } from "../../utils/firebase";
+import { db } from "../utils/firebase";
 import { onValue, ref } from "firebase/database";
 import style from "./product.module.scss"
-import {EmptyPage} from "../emptyPage/EmptyPage"
-import star_icon from "../../../assets/images/star-unfilled.png"
-import { findResponds, newDate, updateToMassResponds, saveProductRespond } from "../../utils/functions";
-import { generateCode } from "../../utils/functions";
+import {EmptyPage} from "../components/emptyPage/EmptyPage"
+import star_icon from "../../assets/images/star-unfilled.png"
+import loading from "../../assets/images/loading.gif"
+import { newDate, updateToMassResponds, saveProductRespond, generateCode } from "../utils/functions";
 import { RespondItem } from "./RespondItem";
+import { StarRating } from "../components/starRating/StarRating";
 
 export const Product = (props) => {
     let {id} = useParams();
     const [user, setUser]=useState({});
-    const [products, setProducts] = useState([]);
     const [title, setTitle]= useState("");
     const [textArea, setTextArea] = useState("");
     const [responds, setResponds] =useState([]);
-    const [respond, setRespond]=useState({});
+    const [datas, setDatas]= useState("");
+    const [rate, setRate]= useState("")
 
     useEffect(() => {
         setUser(props.userdata)
@@ -28,18 +29,20 @@ export const Product = (props) => {
         const data = snapshot.val();
             if (snapshot.exists()) {
                 // eslint-disable-next-line
-                setProducts(data);
+                if (data.filter(data => data.id == id).length === 0){
+                    setDatas("false")
+                } else {
+                    setDatas(data.filter(data => data.id === id)[0]);
+                    setRate(data.filter(data => data.id === id)[0].rating.rate)
+                }
             }
         });
-    }, []);
-   
-    let datas = products.filter(data => data.id === id);
-    let data = {};
-    data= datas[0];
-    
+        
+    },[id]);
+
     useEffect(() => {
-        setResponds(updateToMassResponds(data));
-    }, [data]);
+        if (datas || datas === "false") setResponds(updateToMassResponds(datas));
+    }, [datas]);
     
     function countrate (){
         return <img src={star_icon} alt="star_icon" />
@@ -56,18 +59,20 @@ export const Product = (props) => {
             let respond={
                 id: generateCode(),
                 author: user.name,
+                uid: user.uid,
                 title: title,
                 text: textArea,
                 date: newDate(),
                 rating: "2"
             }
-            setRespond(respond);
-            setTextArea('')
-            saveProductRespond(data, respond);
-            // setResponds(getResponds(data));
+            setTextArea("");
+            setTitle("");
+            saveProductRespond(datas, respond);
         }
     }
-
+    const toLogin = () => {
+        props.toLogin();
+    }
     const handleChange = (e) => {
       if (e.target.id === "title"){
             setTitle(e.target.value);
@@ -75,25 +80,40 @@ export const Product = (props) => {
     }
 
     const addToBasketHandler =() =>{
-        props.addToBasketProduct(data);
+        if (datas) props.addToBasketProduct(datas);
     }
-    if(datas.length === 1){
+   
+    if(!datas) {
+        return (
+            <div className={style.loading}> 
+                <img src={loading} alt="loading" />
+            </div>
+        )
+    } else if (datas === "false") {
+        return (
+            <EmptyPage />
+        )
+    } else {
         let respondsmap = responds.map(resp => <RespondItem key={resp.id} resp={resp} />)
         return (
             <div className={style.productpage}>
                 <div className={style.flex}>
-                    <img src={data.img} alt="" />
+                    <img src={datas.img} alt="" />
                     <div>
-                        <h2>{data.name}</h2>
-                        <p className={style.subname}>{data.subName}</p>
-                        <p className={style.price}>{`price: ${data.price}$`}</p>
-                        <p className={style.rate}>{countrate()} {data.rating.rate}</p>
+                        <h2>{datas.name}</h2>
+                        <p className={style.subname}>{datas.subName}</p>
+                        <p className={style.price}>{`price: ${datas.price}$`}</p>
+                        <p className={style.rate}>{countrate()} {rate}</p>
                         <button className={style.btn_add_tobasket} onClick={addToBasketHandler}>
-                        +
-                    </button>
+                            +
+                        </button>
                     </div>
                 </div>
-                <p>{data.about}</p>
+                <p>{datas.about}</p>
+                <div className={style.rating_container}>
+                    <p>Please rate a product</p>
+                    <StarRating user={user} product={datas} toLogin={toLogin} />
+                </div>
                 <div className={style.responds_container}>
                     <h2>Responds</h2>
                     <label htmlFor="title">Title </label>
@@ -103,14 +123,8 @@ export const Product = (props) => {
                     <div className={style.data_responds_container}>
                         {respondsmap}
                     </div>
-                   
                 </div>
             </div>
         )
-    } else {
-        return (
-            <EmptyPage />
-        )
-    }
-    
+    }     
 }
