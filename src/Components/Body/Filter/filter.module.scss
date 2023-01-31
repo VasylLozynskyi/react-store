@@ -65,12 +65,16 @@
          padding: 10px;
          color: #DA00FE;
          h2{
+            display: inline;
              font-size: 25px;
              margin-bottom: 10px;
          }
         
          .flex_btns_category_popup{
             margin: 30px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 10px;
             a{
                 &div{
                     margin: 5px;

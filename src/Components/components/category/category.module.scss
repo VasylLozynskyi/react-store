@@ -1,10 +1,25 @@
 .category_bar{
-    display: flex;
-    align-items: center;
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
     color: #8A8A8A;
+    & > div{
+        display: flex;
+        .category_icon{
+            margin-right: 25px;
+            display: inline;
+            align-items: center;
+            justify-content: center;
+            @media (max-width: 768px) {
+                margin-right: 5px;
+            }
+            img{
+                @media (max-width: 768px) {
+                    width: 25px;
+                } 
+            }
+        }
+    }
     &:hover{
         transform: scale(1.1);
         transition: 1s;
@@ -13,18 +28,5 @@
     @media (max-width: 768px) {
         font-size: 13px;
     }
-    .category_icon{
-        margin-right: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @media (max-width: 768px) {
-            margin-right: 5px;
-        }
-        img{
-            @media (max-width: 768px) {
-                width: 25px;
-            } 
-        }
-    }
+   
 }

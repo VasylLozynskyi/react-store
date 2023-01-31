@@ -4,10 +4,13 @@ export const Category = (props) => {
     let link = `/Products/${props.data.name}`;
     return (
         <Link to={link} className={style.category_bar}>
-            <div className={style.category_icon}>
-                <img src={props.data.img_icon} alt="icon" />
-            </div>
-            <p>{props.data.name}</p>
+            <div>
+                <div className={style.category_icon}>
+                    <img src={props.data.img_icon} alt="icon" />
+                </div>
+
+                <p>{props.data.name}</p>
+                </div>
         </Link>
     )
 }

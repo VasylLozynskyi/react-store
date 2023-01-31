@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import style from "./main.module.scss"
 
@@ -22,7 +22,7 @@ import { SearchPage } from "./SearchPage/SearchPage";
 import { Profile } from "./Profile/Profile";
 import { Basket } from "./Basket/Basket";
 import { createMapLinks } from "./utils/functions";
-
+import { Bread } from "./components/bread/Bread";
 
 const Main = (props) => {
     const [products, setProducts] = useState([]);
@@ -31,9 +31,15 @@ const Main = (props) => {
     const [showloginafterlogout, setShowloginafterlogout]= useState({display: "block"})
     const [tologin, setTologin] = useState({display: "none"});
     const [arr, setArr]= useState([]);
-    const [searchData, setSearchData] = useState([]);
+    const [searchData, setSearchData] = useState("");
+    const [bread, setBread]=useState([]);
+    const location = useLocation();
     // const [addtobasket, setAddtobasket]= useState([]);
 
+    useEffect(() => {
+        setBread([location.pathname.substring(10)]);
+    }, [location])
+    
     useEffect(() => {
         const query = ref(db, "products");
         return onValue(query, (snapshot) => {
@@ -90,6 +96,9 @@ const Main = (props) => {
                 <div className={style.body_flex_container}>
                     <SearchBar onSearch={getSearchData} />
                     <SlideBar slide_datas = {slide_datas} />
+                    <div className={style.bread}>
+                        <Bread mass={bread}/>
+                    </div>
                     <Routes>
                         {createMapLinks(products).map((body, index) => <Route key={index} path={body.link} element={<Body
                                                     addToBasketProduct={addToBasketProduct} 
@@ -99,7 +108,7 @@ const Main = (props) => {
                                                     />}  /> )}
                         <Route path="/About" element={<About />}  />
                         <Route path="/Contacts" element={<Contacts />}  />
-                        <Route path="/Products/:id/" element={<Product userdata={userPtofile}
+                        <Route path={`/Products/:id/`} element={<Product userdata={userPtofile}
                                                                         toLogin={toLogin} 
                                                                         addToBasketProduct={addToBasketProduct} />}  />
                         <Route path="/Products/search" element={<SearchPage data={searchData} />} />

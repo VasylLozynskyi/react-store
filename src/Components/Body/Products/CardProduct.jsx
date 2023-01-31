@@ -8,7 +8,6 @@ export const CardProduct = (props) => {
         props.basket(props.data);
     }
     return (
-       
         <div className={style.card_product}>
             <div className={style.flex_product}>
                 <Link to={link}>

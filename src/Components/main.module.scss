@@ -10,6 +10,22 @@
         .body_flex_container{
             width: 100%;
             padding: 10px 60px;
+            .bread{
+                display: inline-block;
+                padding: 10px 30px 10px 10px;
+               
+                a{
+                    color: white;
+                    margin: 10px;
+                    &:hover{
+                        transition: 1s;
+                        color: #DA00FE;
+                    }
+                    &::before{
+                        content: ">> ";
+                    }
+                }
+            }
         }
     }
 }

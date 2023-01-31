@@ -14,9 +14,10 @@ export const Filter = (props) => {
             setShowPopup({display: "block"})
     }
     const handleCloseFilter = (e) => {
+        if (e.target.attributes.closepopup  === undefined || e.target.attributes.closepopup.value === "false") return;
         if (e.target.attributes.closepopup.value === "true"){
             setShowPopup({display: "none"})
-        } else setShowPopup({display: "block"})
+        } 
     }
     const handleClosePopupBtn = () => {
         setShowPopup({display: "none"})
@@ -24,7 +25,6 @@ export const Filter = (props) => {
     return (
     <>
         <div className={style.filter_container}>
-            <h2>Products</h2>
             <div className={style.flex_btns_filter}>
                 {btns}
                 <button className={style.filter_btn} onClick={showFilterHandler}>
@@ -34,7 +34,10 @@ export const Filter = (props) => {
         </div>
         <div className={style.popup_container} style={show_popup} onClick={handleCloseFilter} closepopup={"true"}>
                 <div className={style.popup} closepopup={"false"}>
-                    <h2>Filter</h2>
+                    <div>
+                        <h2>Filter</h2>
+                    </div>
+                    
                     <div className={style.flex_btns_category_popup}>
                         {category}
                     </div>

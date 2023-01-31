@@ -5,10 +5,10 @@ import { onValue, ref } from "firebase/database";
 import style from "./product.module.scss"
 import {EmptyPage} from "../components/emptyPage/EmptyPage"
 import star_icon from "../../assets/images/star-unfilled.png"
-import loading from "../../assets/images/loading.gif"
 import { newDate, updateToMassResponds, saveProductRespond, generateCode } from "../utils/functions";
 import { RespondItem } from "./RespondItem";
 import { StarRating } from "../components/starRating/StarRating";
+import { Loading } from "../components/loading/Loading";
 
 export const Product = (props) => {
     let {id} = useParams();
@@ -37,7 +37,6 @@ export const Product = (props) => {
                 }
             }
         });
-        
     },[id]);
 
     useEffect(() => {
@@ -85,9 +84,7 @@ export const Product = (props) => {
    
     if(!datas) {
         return (
-            <div className={style.loading}> 
-                <img src={loading} alt="loading" />
-            </div>
+            <Loading />
         )
     } else if (datas === "false") {
         return (
