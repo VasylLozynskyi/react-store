@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import star_icon from "../../../assets/images/star-unfilled.png"
 
 export const CardProduct = (props) => {
-    let link = `/Products/${props.data.id}`;
+    let link = `/react-store/Products/${props.data.id}`;
     const addToBasketHandler =() =>{
         props.basket(props.data);
     }

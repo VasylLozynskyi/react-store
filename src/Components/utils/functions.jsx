@@ -123,12 +123,12 @@ export const filterProducts = (event, products) => {
 
 export const createMapLinks = (products) => {
   let map =[
-    {link: "/*", data: products},
-    {link: "/Products/Computer", data: products.filter(product => product.category === "Computer")},
-    {link: "/Products/Headphones", data: products.filter(product => product.category === "Headphones")},
-    {link: "/Products/Glasses", data: products.filter(product => product.category === "Glasses")},
-    {link: "/Products/Keyboard", data: products.filter(product => product.category === "Keyboard")},
-    {link: "/Products/Mouse", data: products.filter(product => product.category === "Mouse")},
+    {link: "/react-store/*", data: products},
+    {link: "/react-store/Products/Computer", data: products.filter(product => product.category === "Computer")},
+    {link: "/react-store/Products/Headphones", data: products.filter(product => product.category === "Headphones")},
+    {link: "/react-store/Products/Glasses", data: products.filter(product => product.category === "Glasses")},
+    {link: "/react-store/Products/Keyboard", data: products.filter(product => product.category === "Keyboard")},
+    {link: "/react-store/Products/Mouse", data: products.filter(product => product.category === "Mouse")},
 ];
 
   return map;

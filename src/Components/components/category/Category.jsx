@@ -1,7 +1,7 @@
 import style from "./category.module.scss"
 import {Link} from "react-router-dom"
 export const Category = (props) => {
-    let link = `/Products/${props.data.name}`;
+    let link = `/react-store/Products/${props.data.name}`;
     return (
         <Link to={link} className={style.category_bar}>
             <div>

@@ -37,7 +37,9 @@ const Main = (props) => {
     // const [addtobasket, setAddtobasket]= useState([]);
 
     useEffect(() => {
-        setBread([location.pathname.substring(10)]);
+       if (location.pathname.length >= 27) {
+        setBread([location.pathname.substring(22)]);
+       } else setBread([location.pathname.substring(22)]);
     }, [location])
     
     useEffect(() => {
@@ -106,12 +108,12 @@ const Main = (props) => {
                                                     btn_filter = {filter_btns}
                                                     products = {body.data}
                                                     />}  /> )}
-                        <Route path="/About" element={<About />}  />
-                        <Route path="/Contacts" element={<Contacts />}  />
-                        <Route path={`/Products/:id/`} element={<Product userdata={userPtofile}
+                        <Route path="/react-store/About" element={<About />}  />
+                        <Route path="/react-store/Contacts" element={<Contacts />}  />
+                        <Route path={`/react-store/Products/:id/`} element={<Product userdata={userPtofile}
                                                                         toLogin={toLogin} 
                                                                         addToBasketProduct={addToBasketProduct} />}  />
-                        <Route path="/Products/search" element={<SearchPage data={searchData} />} />
+                        <Route path="/react-store/Products/search" element={<SearchPage data={searchData} />} />
                         <Route path="/Profile" element={<Profile 
                                                             userdata={userPtofile}                 
                                                             show_login_after_logout={showLogin}
