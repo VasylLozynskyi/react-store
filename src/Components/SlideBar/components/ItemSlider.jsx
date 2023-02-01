@@ -2,7 +2,7 @@ import style from "../slidebar.module.scss"
 import {Link} from "react-router-dom"
 
 export const ItemSlider = (props) => {
-    let link = `/Products/${props.id}`
+    let link = `/react-store/Products/${props.id}`
     return (
         <div className={style.itemslide_container}>
              <Link to={link}>
