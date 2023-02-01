@@ -65,14 +65,15 @@ export const Header = (props) => {
                     <button className={style.notification}>
                         <img src={notification_icon} alt="notification_icon" />
                     </button>
-                    <Link to="/basket" className={style.basket} >
-                        <img src={basket_icon} alt="notification_icon" /><span>{countproducts}</span>
+                    <Link to="/react-store/basket" className={style.basket} >
+                        <img src={basket_icon} alt="notification_icon" />
+                        { countproducts !== 0 ? <span>{countproducts}</span> : <span></span>}
                     </Link>
                     <div className={style.login} style={close_login} onClick={handleShowLogin}>
                         Login
                     </div>
                     <div className={style.profile} style={show_profile}>
-                        <Link to="/Profile">
+                        <Link to="/react-store/Profile">
                             Profile
                         </Link>
                     </div>

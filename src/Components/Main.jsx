@@ -30,7 +30,7 @@ const Main = (props) => {
     const [userPtofile, setUsersProfile]= useState({});
     const [showloginafterlogout, setShowloginafterlogout]= useState({display: "block"})
     const [tologin, setTologin] = useState({display: "none"});
-    const [arr, setArr]= useState([]);
+    const [CartItems, setCartItems]= useState([]);
     const [searchData, setSearchData] = useState("");
     const [bread, setBread]=useState([]);
     const location = useLocation();
@@ -78,11 +78,24 @@ const Main = (props) => {
         setTologin({display: "block"});
     }
     const addToBasketProduct = (basketProduct) =>{
-        setArr(current =>[...current, basketProduct])
-       
+        const exist = CartItems.find((x) => x.id === basketProduct.id);
+        if (exist) {
+            const newCartItems = CartItems.map((x) => x.id === basketProduct.id ? {...exist, qty: exist.qty + 1} : x);
+            setCartItems(newCartItems);
+        } else {
+            const newCartItems = [...CartItems, {...basketProduct, qty: 1}];
+            setCartItems(newCartItems);
+        }
     }
-    const dellArr = (params) => {
-        setArr(current => [...current.filter(el => el.id !== params.id)])
+    const onRemove = (params) => {
+        const exist = CartItems.find((x) => x.id === params.id);
+        if (exist.qty === 1) {
+            const newCartItems = CartItems.filter((x) => x.id !== params.id);
+            setCartItems(newCartItems);
+        } else {
+            const newCartItems = CartItems.map((x) => x.id === params.id ? {...exist, qty: exist.qty - 1} : x);
+            setCartItems(newCartItems);
+        }
     }
     return (
         <div className={style.wrapper}>
@@ -91,7 +104,7 @@ const Main = (props) => {
                 toProfileUser={toProfileUser} 
                 toLogout={showloginafterlogout} 
                 tologin={tologin} 
-                countbasket = {arr.length} 
+                countbasket = {CartItems.length} 
             />
             <div className={style.main_flex_container}>
                 <SideBar data = {categories_btns} nav= {nav}/>
@@ -114,16 +127,18 @@ const Main = (props) => {
                                                                         toLogin={toLogin} 
                                                                         addToBasketProduct={addToBasketProduct} />}  />
                         <Route path="/react-store/Products/search" element={<SearchPage data={searchData} />} />
-                        <Route path="/Profile" element={<Profile 
+                        <Route path="/react-store/Profile" element={<Profile 
                                                             userdata={userPtofile}                 
                                                             show_login_after_logout={showLogin}
                                                             toLogin={toLogin}
                                                         />} 
                         />
-                        <Route path="/basket" element={<Basket arr={arr} 
+                        <Route path="/react-store/basket" element={<Basket arr={CartItems} 
+                                                            addToBasketProduct={addToBasketProduct}
+                                                            onRemove={onRemove} 
                                                             user={user} 
-                                                            tologin={toLogin} 
-                                                            dellArr={dellArr}
+                                                            toLogin={toLogin} 
+            
                                                         />}  />
                     </Routes>
                 </div>
